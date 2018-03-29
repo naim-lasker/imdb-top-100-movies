@@ -1,0 +1,36 @@
+{
+  "name": "imdb-top-100-movies",
+  "version": "1.0.0",
+  "description": "Top 100 IMDB movie list website",
+  "main": "main.js",
+  "scripts": {
+    "server": "http-server",
+    "dev": "webpack -d --watch",
+    "prod": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naim-lasker/imdb-top-100-movies.git"
+  },
+  "keywords": [
+    "IMDB",
+    "Top",
+    "100",
+    "Movies"
+  ],
+  "author": "Naim Lasker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naim-lasker/imdb-top-100-movies/issues"
+  },
+  "homepage": "https://github.com/naim-lasker/imdb-top-100-movies#readme",
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "http-server": "^0.11.1",
+    "node-sass": "^4.8.3",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "webpack": "^3.10.0"
+  }
+}
