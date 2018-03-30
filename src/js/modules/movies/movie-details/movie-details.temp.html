@@ -1,9 +1,85 @@
-<h2>Movie Details</h2>
-<table>
-    <tr ng-repeat="list in $ctrl.movieDetails | filter: $ctrl.movieId">
-            <td>{{list.id}}</td>
-        <td>{{list.name}}</td>
-        <td>{{list.year}}</td>
-        <td>{{list.rating}}</td>
-    </tr>
-</table>
+<div class="movie-details">
+    <div ng-repeat="movie in $ctrl.movieDetails | filter: $ctrl.movieId">
+        <!-- Title and Info -->
+        <div class="title-wrapper">
+            <div layout="row" layout-align="space-between start">
+                <div class="title-block">
+                    <h1>
+                        {{movie.Title}}
+                        <span class="titleYear">({{movie.Year}})</span>
+                    </h1>
+                    <div class="subtext">
+                        <span class="rated">{{movie.Rated}}</span>
+                        <span class="h-divider"></span>
+                        <span class="duration">{{movie.Runtime}}</span>
+                        <span class="h-divider"></span>
+                        <span class="genre">{{movie.Genre}}</span>
+                        <span class="h-divider"></span>
+                        <span class="release-date">{{movie.Released}}</span>
+                        <span class="country">({{movie.Country}})</span>
+                    </div>
+                </div>
+
+                <div class="rating">
+                    <strong>{{movie.imdbRating}}</strong>
+                    <span>/10</span>
+                    <small>{{movie.imdbVotes}}</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Poster and Trailer -->
+        <div class="slate-wrapper">
+            <div layout="row" layout-align="start start">
+                <div class="poster">
+                    <img ng-src="{{movie.Poster}}" alt="{{movie.Title}}">
+                </div>
+
+                <div class="trailer">
+                    <img ng-src="{{movie.trailerPoster}}" alt="{{movie.Title}}">
+                    <a href="{{movie.trailerLink}}" target="_blank" title="Watch Trailer"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Plot -->
+        <div class="plot_summary">
+            <p class="summary_text">{{movie.Plot}}</p>
+            <div class="credit_summary">
+                <h4>
+                    Director:
+                    <span>{{movie.Director}}</span>
+                </h4>
+                <h4>
+                    Writers:
+                    <span>{{movie.Writer}}</span>
+                </h4>
+                <h4>
+                    Stars:
+                    <span>{{movie.Actors}}</span>
+                </h4>
+            </div>
+            <div class="titleReviewBar">
+                <div class="titleReviewBarItem">
+                    <div class="metacriticScore">
+                        <span>{{movie.Metascore}}</span>
+                    </div>
+                    <div class="titleReviewBarSubItem">
+                        <div>
+                            <span>Metascore</span>
+                        </div>
+                        <div class="subText">
+                            <span>From
+                                <a href="http://www.metacritic.com" target="_blank">http://www.metacritic.com</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Awards -->
+        <div class="titleAwardsRanks">
+            <h5>{{movie.Awards}}</h5>
+        </div>
+    </div>

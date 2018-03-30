@@ -1,0 +1,155 @@
+@import '../partial/variables';
+
+.movie-details {
+    height: 84.4vh;
+    background: $white-color;
+    // Title and Info
+    .title-wrapper {
+        background: $gray-dark1;
+        padding: 22px 32px;
+        .title-block {
+            h1 {
+                font: 32px Arial,sans-serif;
+                font-weight: normal;
+                line-height: 110%;
+                margin: 0px;
+                color: $white-color;
+                padding-bottom: 3px;
+                .titleYear {
+                    color: $gray-lighten5;
+                    font-family: Arial;
+                    font-size: 25px;
+                    line-height: 100%;
+                }
+            }
+            .subtext {
+                display: block;
+                font-size: 11px;
+                color: $gray-lighten5;
+            }
+        }
+        .rating {
+            color: $white-color;
+            width: 100px;
+            background: url(../images/rating.png) no-repeat;
+            background-position: 0;
+            font-size: 11px;
+            height: 40px;
+            line-height: 13px;
+            padding: 2px 0 0 34px;
+            strong {
+                font-size: 24px;
+                font-weight: normal;
+                font-family: Arial;
+                line-height: 24px;
+            }
+            span {
+                color: #a09f9f;
+                font-size: 12px;
+            }
+        }
+    }
+    
+    // Poster and Trailer
+    .slate-wrapper {
+        .poster {
+            img {
+                width: 300px;
+                height: 400px;
+                border-right: 1px solid $gray-dark2;
+            }
+        }
+        .trailer {
+            position: relative;
+            &:after {
+                content: "";
+                height: 79px;
+                width: 80px;
+                left: 50%;
+                position: absolute;
+                top: 50%;
+                -webkit-transform: translate(-50%,-50%);
+                -ms-transform: translate(-50%,-50%);
+                transform: translate(-50%,-50%);
+                background: url(../images/play.png);
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            img {
+                width: 600px;
+                height: 400px;
+            }
+            a {
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+            }
+        }
+    }
+
+    // Plot
+    .plot_summary {
+        padding: 32px 20px;
+        background: $gray-lighten2;
+        margin-top: -3px;
+        .summary_text {
+            padding-bottom: 16px;
+            line-height: 18px;
+        }
+        .credit_summary {
+            h4 {
+                margin-bottom: 5px;
+                span {
+                    font-weight: normal;
+                    color: #76774a;
+                }
+            }
+        }
+        .titleReviewBar {
+            height: 31px;
+            padding-bottom: 24px;
+            margin-top: 18px;
+            .titleReviewBarItem {
+                display: inline-block;
+                .metacriticScore {
+                    display: inline-block;
+                    background-color: #66CC33;
+                    color: $white-color;
+                    font-size: 13px;
+                    height: 28px;
+                    text-align: center;
+                    vertical-align: 55%;
+                    width: 28px;
+                    span {
+                        line-height: 28px;
+                        vertical-align: middle;
+                    }
+                }
+                .titleReviewBarSubItem {
+                    display: inline-block;
+                    margin-left: 12px;
+                }
+                .subText {
+                    span {
+                        font-size: 11px;
+                        color: #444;
+                    }
+                }
+            }
+        }
+    }
+
+    // Awards
+    .titleAwardsRanks {
+        background: #cec861;
+        padding: 20px;
+        h5 {
+            color: $black-color;
+            font-size: 15px;
+        }
+    }
+}

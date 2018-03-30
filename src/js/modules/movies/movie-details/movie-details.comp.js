@@ -4,8 +4,8 @@
     var vm = this;
     vm.movieDetails = [];
 
-    $http.get("data/movie-details.json").then(function(response) {
-        vm.movieDetails = response.data.movie_details;
+    $http.get("data/movies.json").then(function(response) {
+        vm.movieDetails = response.data.movie_list;
     });
 
     vm.movieId = $stateParams.id;

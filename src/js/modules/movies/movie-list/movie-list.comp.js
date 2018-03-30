@@ -4,7 +4,7 @@ function movieListController($http, $location) {
     var vm = this;
     vm.movieItems = [];
 
-    $http.get("data/movie-list.json").then(function(response) {
+    $http.get("data/movies.json").then(function(response) {
         vm.movieItems = response.data.movie_list;
     });
 

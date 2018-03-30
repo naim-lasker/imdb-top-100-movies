@@ -13,9 +13,35 @@
 
 <body>
 
+    <!-- Nav Bar -->
     <main>
+        <md-toolbar>
+            <div layout="row" layout-align="space-between center">
+                <div class="header">
+                    <a ui-sref="home">
+                        <img src="images/logo.jpg" alt="" title="IMDb">
+                    </a>
+                </div>
+                <div class="navbar">
+                    <a ui-sref="/movie-list" title="Top 100 movies">
+                        <md-button>
+                            Top 100 Movies
+                        </md-button>
+                    </a>
+                </div>
+            </div>
+        </md-toolbar>
+
+        <!-- Component View -->
         <ui-view></ui-view>
     </main>
+
+    <!-- Footer -->
+    <footer class="grey darken-3 print-display-none" id="footer">
+        <h5>Design &amp; Developed by
+            <a href="http://naim.unaux.com/" title="Naim Lasker" target="_blank">Naim Lasker</a>
+        </h5>
+    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>

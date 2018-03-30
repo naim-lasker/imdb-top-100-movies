@@ -1,4 +1,5 @@
 @import '../partial/variables';
+
 .movie-list-body {
     background: $gray-lighten2;
     padding: 24px;
@@ -37,11 +38,20 @@
                     img {
                         width: 45px;
                         height: 67px;
+                        &:hover {
+                            cursor: pointer;
+                        }
                     }
                 }
                 .titleColumn {
                     font-size: 15px;
                     font-weight: 500;
+                    span {
+                        &:hover {
+                            text-decoration: underline;
+                            cursor: pointer;
+                        }
+                    }
                 }
                 .ratingColumn  {
                     font-weight: bold;
@@ -49,7 +59,7 @@
                 }
                 tr {
                     &:nth-child(odd) {
-                        background-color: $gray-lighten2;
+                        background-color: $gray-lighten3;
                     }
                 }
             }

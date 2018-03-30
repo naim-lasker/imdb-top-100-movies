@@ -1,4 +1,7 @@
+// Import Partial Files
 @import 'partial/reset';
 
 // Import Layout Sass Files
+@import 'layout/home';
 @import 'layout/movie-list';
+@import 'layout/movie-details';

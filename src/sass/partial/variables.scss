@@ -1,12 +1,20 @@
+$white-color: #fff;
 $gray-lighten2: #f9f9f9;
 $gray-lighten3: #e8e8e8;
 $gray-lighten4: #e3e3e3;
+$gray-lighten5: #C0C0C0;
 $gray-dark1: #333;
 $gray-dark2: #666;
-$black: #000000;
+$black-color: #000000;
 
 
 // Width
 .full-width {
     width: 100%;
+}
+
+// Horizontally Divider
+.h-divider {
+    margin: 0 10px;
+    border-right: 1px solid $gray-lighten5;
 }
