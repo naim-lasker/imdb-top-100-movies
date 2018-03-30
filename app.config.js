@@ -1,7 +1,7 @@
 "use strict";
 
 function config($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
+    // $urlRouterProvider.otherwise('/');
 
     $stateProvider
     .state('home', {
@@ -12,6 +12,11 @@ function config($stateProvider, $urlRouterProvider) {
     .state('/movie-list', {
         url: '/movie-list',
         template: '<movie-list></movie-list>'
+    })
+
+    .state('/movie-details/',{
+        url: '/movie-list/:id',
+        template: '<movie-details></movie-details>'
     })
 }
 

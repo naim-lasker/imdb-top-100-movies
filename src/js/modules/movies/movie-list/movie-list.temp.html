@@ -16,12 +16,16 @@
             </thead>
 
             <tbody>
-                <tr>
+                <tr ng-repeat="movie in $ctrl.movieItems">
                     <td class="posterColumn">
-                        <img src="images/the_shawshank_redemption.jpg" alt="The Shawshank Redemption">
+                        <div >
+                            <img ng-click="$ctrl.movieDetails(movie.id)" ng-src="{{movie.img}}" alt="{{movie.name}}">
+                        </div>
                     </td>
-                    <td class="titleColumn">1. The Shawshank Redemption (1994)</td>
-                    <td class="ratingColumn">9.2</td>
+                    <td class="titleColumn">{{$index + 1}}. 
+                        <a href="" ng-click="$ctrl.movieDetails(movie.id)">{{movie.name}} ({{movie.year}})</a>
+                    </td>
+                    <td class="ratingColumn">{{movie.rating}}</td>
                 </tr>
             </tbody>
         </table>

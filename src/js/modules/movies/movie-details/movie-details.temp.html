@@ -1,0 +1,9 @@
+<h2>Movie Details</h2>
+<table>
+    <tr ng-repeat="list in $ctrl.movieDetails | filter: $ctrl.movieId">
+            <td>{{list.id}}</td>
+        <td>{{list.name}}</td>
+        <td>{{list.year}}</td>
+        <td>{{list.rating}}</td>
+    </tr>
+</table>
