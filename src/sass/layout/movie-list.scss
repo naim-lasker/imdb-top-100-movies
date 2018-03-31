@@ -19,7 +19,45 @@
         }
     }
 
+    // Search Box
+    .search-box {
+        text-align: center;
+        margin: 10px 0 32px;
+        background: #969696;
+        padding: 12px;
+        input {
+            border: none;
+            border-radius: 3px 0px 0px 3px;
+            box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 1px inset;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            font-stretch: normal;
+            font-size: 16px;
+            line-height: normal;
+            font-family: Verdana, Arial, sans-serif;
+            height: 36px;
+            padding: 5px 8px;
+            vertical-align: middle;
+            width: 419px;
+            &:focus {
+                outline: 1px solid #ff0;
+            }
+        }
+    }
+
+    // Not Found Message
+    .not-found {
+        text-align: center;
+        font-size: 24px;
+        color: #ff0b0b;
+        margin-bottom: 24px;
+    }
+
+
+    // Show List
     .list-body {
+        margin-top: 16px;
         table {
             border-collapse: collapse;
             width: 100%;
@@ -46,6 +84,7 @@
                 .titleColumn {
                     font-size: 15px;
                     font-weight: 500;
+                    padding-right: 24px;
                     span {
                         &:hover {
                             text-decoration: underline;

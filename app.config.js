@@ -18,6 +18,11 @@ function config($stateProvider, $urlRouterProvider) {
         url: '/movie-list/:id',
         template: '<movie-details></movie-details>'
     })
+
+    .state('/add-movies', {
+        url: '/add-movies',
+        template: '<add-movies></add-movies>'
+    })
 }
 
 imdb.config(["$stateProvider", "$urlRouterProvider", config]);

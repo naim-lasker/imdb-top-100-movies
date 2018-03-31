@@ -37,7 +37,7 @@
 
                 <div class="trailer">
                     <img ng-src="{{movie.trailerPoster}}" alt="{{movie.Title}}">
-                    <a href="{{movie.trailerLink}}" target="_blank" title="Watch Trailer"></a>
+                    <a href="{{movie.trailerLink}}" target="_blank" title="Watch {{movie.Title}} ({{movie.Year}}) Trailer"></a>
                 </div>
             </div>
         </div>
@@ -80,6 +80,11 @@
 
         <!-- Awards -->
         <div class="titleAwardsRanks">
-            <h5>{{movie.Awards}}</h5>
+            <h5>
+                <strong><a ui-sref="/movie-list">Top Rated Movies #{{movie.id}}</a></strong>
+                <span class="h-divider"></span>
+                {{movie.Awards}}
+            </h5>
         </div>
     </div>
+</div>

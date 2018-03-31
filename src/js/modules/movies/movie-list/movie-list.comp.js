@@ -1,21 +1,24 @@
-"use strict";
+(function () {
+    "use strict";
 
-function movieListController($http, $location) {
-    var vm = this;
-    vm.movieItems = [];
+    function movieListController($http, $location) {
+        var vm = this;
+        vm.movieItems = [];
 
-    $http.get("data/movies.json").then(function(response) {
-        vm.movieItems = response.data.movie_list;
-    });
+        // Get Novie List
+        $http.get("data/movies.json").then(function (response) {
+            vm.movieItems = response.data.movie_list;
+        });
 
-    vm.movieDetails = function(id) {
-        var tempLoc = `/movie-list/${id}`;
-        $location.path(tempLoc);
+        // Send to the details page using id
+        vm.movieDetails = function (id) {
+            var tempLoc = "/movie-list/" + id;
+            $location.path(tempLoc);
+        }
     }
 
-}
-
-movies.component("movieList", {
-    templateUrl: "src/js/modules/movies/movie-list/movie-list.temp.html",
-    controller: ["$http", "$location", movieListController]
-});
+    movies.component("movieList", {
+        templateUrl: "src/js/modules/movies/movie-list/movie-list.temp.html",
+        controller: ["$http", "$location", movieListController]
+    });
+})();

@@ -2,13 +2,37 @@
     <div class="list-header">
         <h1 class="header">Top Rated Movies</h1>
         <p class="byline">Top 100 as rated by IMDb Users</p>
-        <hr>
     </div>
 
+    <!-- Search Box -->
+    <div class="search-box">
+        <input type="text" ng-model="searchMovie.Title" placeholder="Type Movie Name">
+    </div>
+    <div ng-show="!($ctrl.movieItems | filter:searchMovie).length">
+        <p class="not-found">No movie found. Please check your spelling.</p>
+    </div>
+
+    <div layout="row" layout-align="space-between start" ng-hide="!($ctrl.movieItems | filter:searchMovie).length">
+        <div>
+            <p>Showing 100 Titles</p>
+        </div>
+        <div>
+            <label>Sort By:</label>
+            <select ng-model="$ctrl.shortColumn">
+                <option value="" selected disabled hidden>Select Anything</option>
+                <option value="-imdbRating">Ranking</option>
+                <option value="Title">Ascending Order</option>
+                <option value="-Title">Descending Order</option>
+            </select>
+        </div>
+    </div>
+
+
+    <!-- Movie List -->
     <div class="list-body">
         <table>
             <thead>
-                <tr>
+                <tr ng-hide="!($ctrl.movieItems | filter:searchMovie).length">
                     <th width="6%"></th>
                     <th width="60%">Rank &amp; Title</th>
                     <th width="20%">IMDb Rating</th>
@@ -16,12 +40,12 @@
             </thead>
 
             <tbody>
-                <tr ng-repeat="movie in $ctrl.movieItems">
+                <tr ng-repeat="movie in $ctrl.movieItems | filter: searchMovie  | orderBy: $ctrl.shortColumn">
                     <td class="posterColumn">
                         <img ng-click="$ctrl.movieDetails(movie.imdbID)" ng-src="{{movie.Poster}}" alt="{{movie.Title}}" title="{{movie.Title}}">
                     </td>
-                    <td class="titleColumn">{{$index + 1}}.
-                        <span ng-click="$ctrl.movieDetails(movie.imdbID)"  title="{{movie.Title}}">{{movie.Title}} ({{movie.Year}})</span>
+                    <td class="titleColumn">{{movie.id}}.
+                        <span ng-click="$ctrl.movieDetails(movie.imdbID)" title="{{movie.Title}}">{{movie.Title}} ({{movie.Year}})</span>
                     </td>
                     <td class="ratingColumn">{{movie.imdbRating}}</td>
                 </tr>
