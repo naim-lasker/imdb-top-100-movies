@@ -67,6 +67,15 @@ md-toolbar {
     }
 }
 
+md-toast {
+    .md-toast-content {
+        position: fixed;
+        right: 48px;
+        bottom: 48px;
+        z-index: 1000;
+    }
+}
+
 
 // Footer
 footer {

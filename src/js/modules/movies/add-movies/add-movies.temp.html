@@ -1,3 +1,118 @@
 <div class="add-movies">
-    <h2>Add Movie</h2>
+    <!-- Movie Headr -->
+    <hr>
+    <div layout="row" layout-align="space-between center">
+        <div>
+            <h3 class="">Movies</h3>
+        </div>
+        <div>
+            <md-button class="md-raised md-primary" ng-click="$ctrl.showMovieInput()" title="Add New Movie">Add New Movie</md-button>
+        </div>
+    </div>
+    <hr>
+
+    <!-- Add New Movie -->
+    <div class="add-new-movie" ng-show="$ctrl.showAddMovie">
+        <h2>Add Movie:</h2>
+        <form name="addMovie">
+            <md-input-container class="md-block">
+                <label>Ranking:</label>
+                <input type="number" ng-model="$ctrl.formData.ranking" ng-required="true">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Movie Name:</label>
+                <input type="text" ng-model="$ctrl.formData.movieName" ng-required="true">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Release Year:</label>
+                <input type="number" ng-model="$ctrl.formData.releaseYear" ng-required="true">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Duration (in minute)</label>
+                <input type="text" ng-model="$ctrl.formData.duration" ng-required="true">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Rating</label>
+                <input type="text" ng-model="$ctrl.formData.rating" ng-required="true">
+            </md-input-container>
+
+            <div layout="row" layout-align="space-between center">
+                <div>
+                    <md-button class="md-raised md-warn" ng-click="$ctrl.hideMovieInput()" title="Cancel Adding Movie">Cancel</md-button>
+                </div>
+                <div>
+                    <md-button class="md-raised md-primary" ng-click="addMovie.$valid && $ctrl.addMovies()" title="Add Movie">Add</md-button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Edit Movie -->
+    <div class="add-new-movie" ng-show="$ctrl.showEditMovie">
+        <h2>Edit Movie:</h2>
+        <form name="editMovie">
+            <md-input-container class="md-block">
+                <label>Ranking:</label>
+                <input type="number" ng-model="$ctrl.clickedMovie.ranking" ng-required="true">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Movie Name:</label>
+                <input type="text" ng-model="$ctrl.clickedMovie.movieName" ng-required="true">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Release Year:</label>
+                <input type="number" ng-model="$ctrl.clickedMovie.releaseYear" ng-required="true">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Duration (in minute)</label>
+                <input type="number" ng-model="$ctrl.clickedMovie.duration" ng-required="true">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Rating</label>
+                <input type="number" ng-model="$ctrl.clickedMovie.rating" ng-required="true">
+            </md-input-container>
+
+            <div layout="row" layout-align="space-between center">
+                <div>
+                    <md-button class="md-raised md-warn" ng-click="$ctrl.hideEditMovie()" title="Cancel Updating Movie">Cancel</md-button>
+                </div>
+                <div>
+                    <md-button class="md-raised md-primary" ng-click="editMovie.$valid && $ctrl.updateMovie()" title="Update Movie">Update</md-button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Show Movie List -->
+    <div class="movie-list">
+        <h2>Movie List:</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Ranking</th>
+                    <th>Movie Name</th>
+                    <th>Realease Year</th>
+                    <th>Duration</th>
+                    <th>Rating</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="movie in $ctrl.movieList">
+                    <td>{{movie.ranking}}</td>
+                    <td>{{movie.movieName}}</td>
+                    <td>{{movie.releaseYear}}</td>
+                    <td>{{movie.duration}} min</td>
+                    <td>{{movie.rating}}</td>
+                    <td>
+                        <md-button class="md-raised md-primary" ng-click="$ctrl.selectMovie(movie)" title="Edit {{movie.movieName}} ({{movie.releaseYear}}) Movie">Edit</md-button>
+                    </td>
+                    <td>
+                        <md-button class="md-raised md-warn" ng-click="$ctrl.deletePrompt($event, movie)" title="Delete {{movie.movieName}} ({{movie.releaseYear}}) Movie">Delete</md-button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

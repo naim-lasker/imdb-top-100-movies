@@ -1,4 +1,42 @@
+@import '../partial/variables';
+
 .add-movies {
     background: $gray-lighten2;
     padding: 24px;
+    .add-new-movie {
+        h2 {
+            margin-bottom: 16px;
+            font-size: 22px;
+        }
+        form {
+            margin-top: 36px;
+        }
+        margin: 64px;
+    }
+
+    // Movie List
+    .movie-list {
+        margin-top: 24px;
+        h2 {
+            margin-bottom: 16px;
+            font-size: 22px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            th, td {
+                text-align: center;
+            }
+            th {
+                padding: 12px 0;
+                background: $gray-dark2;
+                color: $white-color;
+            }
+            tr {
+                &:nth-child(odd) {
+                    background: $gray-lighten3;
+                }
+            }
+        }
+    }
 }
