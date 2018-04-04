@@ -32,7 +32,7 @@
     <div class="list-body">
         <table>
             <thead>
-                <tr ng-hide="!($ctrl.movieItems | filter:searchMovie).length">
+                <tr ng-hide="!($ctrl.movieItemList | filter:searchMovie).length">
                     <th width="6%"></th>
                     <th width="60%">Rank &amp; Title</th>
                     <th width="20%">IMDb Rating</th>
@@ -40,7 +40,8 @@
             </thead>
 
             <tbody>
-                <tr ng-repeat="movie in $ctrl.movieItems | filter: searchMovie  | orderBy: $ctrl.shortColumn">
+                <tr dir-paginate="movie in $ctrl.movieItems | filter:searchMovie | orderBy: $ctrl.shortColumn | itemsPerPage: $ctrl.pageSize track by $index"
+                    current-page="$ctrl.currentPage">
                     <td class="posterColumn">
                         <img ng-click="$ctrl.movieDetails(movie.imdbID)" ng-src="{{movie.Poster}}" alt="{{movie.Title}}" title="{{movie.Title}}">
                     </td>
@@ -51,5 +52,10 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+
+    <!-- PAgination -->
+    <div class="paging">
+        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
     </div>
 </section>

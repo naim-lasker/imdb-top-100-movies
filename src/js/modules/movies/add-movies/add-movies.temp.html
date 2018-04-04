@@ -18,22 +18,41 @@
             <md-input-container class="md-block">
                 <label>Ranking:</label>
                 <input type="number" ng-model="$ctrl.formData.ranking" ng-required="true">
+                <div ng-messages="addMovie.$ctrl.formData.ranking.$error">
+                    <div ng-message="required">Please enter Ranking field</div>
+                </div>
             </md-input-container>
+
             <md-input-container class="md-block">
                 <label>Movie Name:</label>
                 <input type="text" ng-model="$ctrl.formData.movieName" ng-required="true">
+                <div ng-messages="addMovie.$ctrl.formData.movieName.$error">
+                    <div ng-message="required">Please enter Movie Name field</div>
+                </div>
             </md-input-container>
+
             <md-input-container class="md-block">
                 <label>Release Year:</label>
                 <input type="number" ng-model="$ctrl.formData.releaseYear" ng-required="true">
+                <div ng-messages="addMovie.$ctrl.formData.releaseYear.$error">
+                    <div ng-message="required">Please enter Release Year field</div>
+                </div>
             </md-input-container>
+
             <md-input-container class="md-block">
                 <label>Duration (in minute)</label>
-                <input type="text" ng-model="$ctrl.formData.duration" ng-required="true">
+                <input type="number" ng-model="$ctrl.formData.duration" ng-required="true">
+                <div ng-messages="addMovie.$ctrl.formData.duration.$error">
+                    <div ng-message="required">Please enter Duration field</div>
+                </div>
             </md-input-container>
+
             <md-input-container class="md-block">
                 <label>Rating</label>
-                <input type="text" ng-model="$ctrl.formData.rating" ng-required="true">
+                <input type="number" ng-model="$ctrl.formData.rating" ng-required="true">
+                <div ng-messages="addMovie.$ctrl.formData.rating.$error">
+                    <div ng-message="required">Please enter Rating field</div>
+                </div>
             </md-input-container>
 
             <div layout="row" layout-align="space-between center">
@@ -41,7 +60,7 @@
                     <md-button class="md-raised md-warn" ng-click="$ctrl.hideMovieInput()" title="Cancel Adding Movie">Cancel</md-button>
                 </div>
                 <div>
-                    <md-button class="md-raised md-primary" ng-click="addMovie.$valid && $ctrl.addMovies()" title="Add Movie">Add</md-button>
+                    <md-button class="md-raised md-primary" ng-click="addMovie.$valid && $ctrl.addMovie()" title="Add Movie">Add</md-button>
                 </div>
             </div>
         </form>
@@ -54,22 +73,41 @@
             <md-input-container class="md-block">
                 <label>Ranking:</label>
                 <input type="number" ng-model="$ctrl.clickedMovie.ranking" ng-required="true">
+                <div ng-messages="editMovie.$ctrl.clickedMovie.ranking.$error">
+                    <div ng-message="required">Please enter Ranking field</div>
+                </div>
             </md-input-container>
+
             <md-input-container class="md-block">
                 <label>Movie Name:</label>
                 <input type="text" ng-model="$ctrl.clickedMovie.movieName" ng-required="true">
+                <div ng-messages="editMovie.$ctrl.clickedMovie.movieName.$error">
+                    <div ng-message="required">Please enter Movie Name field</div>
+                </div>
             </md-input-container>
+
             <md-input-container class="md-block">
                 <label>Release Year:</label>
                 <input type="number" ng-model="$ctrl.clickedMovie.releaseYear" ng-required="true">
+                <div ng-messages="editMovie.$ctrl.clickedMovie.releaseYear.$error">
+                    <div ng-message="required">Please enter Release Year field</div>
+                </div>
             </md-input-container>
+
             <md-input-container class="md-block">
                 <label>Duration (in minute)</label>
                 <input type="number" ng-model="$ctrl.clickedMovie.duration" ng-required="true">
+                <div ng-messages="editMovie.$ctrl.clickedMovie.duration.$error">
+                    <div ng-message="required">Please enter Duration field</div>
+                </div>
             </md-input-container>
+
             <md-input-container class="md-block">
                 <label>Rating</label>
                 <input type="number" ng-model="$ctrl.clickedMovie.rating" ng-required="true">
+                <div ng-messages="editMovie.$ctrl.clickedMovie.rating.$error">
+                    <div ng-message="required">Please enter Rating field</div>
+                </div>
             </md-input-container>
 
             <div layout="row" layout-align="space-between center">
@@ -84,7 +122,7 @@
     </div>
 
     <!-- Show Movie List -->
-    <div class="movie-list">
+    <div class="movie-list" ng-hide="$ctrl.showAddMovie || $ctrl.showEditMovie">
         <h2>Movie List:</h2>
         <table class="table table-striped">
             <thead>

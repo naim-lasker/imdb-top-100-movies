@@ -24,6 +24,7 @@
         // Show Add Movie Input fields
         vm.showMovieInput = function () {
             vm.showAddMovie = true;
+            vm.showEditMovie = false;
         }
 
         // Hide Add Movie Inputs fields
@@ -32,10 +33,11 @@
         }
 
         // Add New Movie
-        vm.addMovies = function () {
+        vm.addMovie = function () {
             vm.movieList.push(vm.formData);
             vm.formData = {}
             vm.showAddMovie = false;
+            console.log("ju");
 
             $mdToast.show(
                 $mdToast.simple()
